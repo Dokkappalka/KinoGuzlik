@@ -31,7 +31,7 @@ export const fetchFilms = createAsyncThunk(
         : `&page=${Math.floor(Math.random() * _.pages)}`
     try {
       const response = await axios.get(
-        `https://api.kinopoisk.dev/movie?token=C6AE02R-QQT4Z07-M6YAG1X-HD4BSC0&limit=1${genre}${country}${popular}${date}${rate}${nextPage}${age}`
+        `https://api.kinopoisk.dev/movie?token=<ENTER_YOUR_TOKEN_HERE>&limit=1${genre}${country}${popular}${date}${rate}${nextPage}${age}`
       )
       return response.data
     } catch (e: any) {
