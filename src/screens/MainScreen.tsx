@@ -119,21 +119,21 @@ const MainScreen = ({ navigation }: any) => {
               pages: film.pages,
             })
           )
-            .then((res) => {
-              if (!res.payload.docs.length) {
-                dispatch(
-                  fetchFilms({
-                    genre: currentGenre,
-                    country: currentCountry,
-                    popular: chosenPopular,
-                    age: chosenAges,
-                    rate: `${lowRate}-${hightRate}`,
-                    date: `${lowDate}-${hightDate}`,
-                    pages: res.payload.pages,
-                  })
-                )
-              }
-            })
+            // .then((res) => {
+            //   if (!res.payload.docs.length) {
+            //     dispatch(
+            //       fetchFilms({
+            //         genre: currentGenre,
+            //         country: currentCountry,
+            //         popular: chosenPopular,
+            //         age: chosenAges,
+            //         rate: `${lowRate}-${hightRate}`,
+            //         date: `${lowDate}-${hightDate}`,
+            //         pages: res.payload.pages,
+            //       })
+            //     )
+            //   }
+            // })
             .finally(() => navigation.navigate('Film')) //Можно было бы передавать сразу всю требуемую информацию, но я не до конца понимаю, что из этого тратит меьнше русурсов и как правильнее. Возможно, я ошибся...
         }}
       >

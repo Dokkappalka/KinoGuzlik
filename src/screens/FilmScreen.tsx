@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import {
   Text,
+  ImageBackground,
   View,
   ScrollView,
   ActivityIndicator,
@@ -70,7 +71,16 @@ const FilmScreen = ({ navigation }: any) => {
     <ScrollView style={{ backgroundColor: '#333333', height: '100%' }}>
       {film.docs[0].poster ? (
         <FilmImageContainer>
-          <FilmImage source={{ uri: film.docs[0].poster?.url }} />
+          <ImageBackground
+            source={{ uri: film.docs[0].poster?.url }}
+            resizeMode='cover'
+            blurRadius={20}
+            style={{
+              width: 400,
+            }}
+          >
+            <FilmImage source={{ uri: film.docs[0].poster?.url }} />
+          </ImageBackground>
         </FilmImageContainer>
       ) : (
         <View
@@ -88,6 +98,8 @@ const FilmScreen = ({ navigation }: any) => {
             style={{
               color: '#d7d7d8',
               textAlign: 'center',
+              height: 40,
+              width: 200,
             }}
           >
             Изображения нету...
@@ -187,14 +199,16 @@ const FilmScreen = ({ navigation }: any) => {
 }
 
 const FilmImageContainer = styled.View`
-  display: flex;
+  margin: auto;
   align-items: center;
+  margin-bottom: 30px;
 `
 
 const FilmImage = styled.Image`
   width: 200px;
   height: 300px;
-  margin-bottom: 30px;
+  margin: auto;
+  background: transparent;
 `
 
 const FilmDescription = styled.Text`
