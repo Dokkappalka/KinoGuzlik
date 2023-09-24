@@ -164,22 +164,9 @@ const FilmScreen = ({ navigation }: any) => {
                 rate: `${lowRate}-${hightRate}`,
                 date: `${lowDate}-${hightDate}`,
                 pages: film.pages,
+                page: Math.floor(Math.random() * film.pages) + 1,
               })
-            ).then((res) => {
-              if (!res.payload.docs.length) {
-                dispatch(
-                  fetchFilms({
-                    genre: currentGenre,
-                    country: currentCountry,
-                    popular: chosenPopular,
-                    age: chosenAges,
-                    rate: `${lowRate}-${hightRate}`,
-                    date: `${lowDate}-${hightDate}`,
-                    pages: res.payload.pages,
-                  })
-                )
-              }
-            })
+            )
           }}
         >
           <FilmButtonText>Другой фильм</FilmButtonText>

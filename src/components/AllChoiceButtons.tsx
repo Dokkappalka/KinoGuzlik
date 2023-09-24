@@ -77,5 +77,6 @@ const AllChoiceButtons = () => {
 export default AllChoiceButtons
 
 const PopButtonContainer = styled.View`
+  display: flex;
   flex-direction: row;
 `

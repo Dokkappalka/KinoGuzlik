@@ -9,6 +9,7 @@ interface fetchTypes {
   popular: string
   age: string[]
   pages: number
+  page: number
 }
 //Это выглядит немного страшно. Мне следует вернуться к этому моменту...
 export const fetchFilms = createAsyncThunk(
@@ -26,13 +27,11 @@ export const fetchFilms = createAsyncThunk(
     const rate = `&field=rating.kp&search=${_.rate}`
     const date = `&field=year&search=${_.date}`
     //На это тоже нужно обратить вниакние.
-    const nextPage =
-      _.pages === 1
-        ? `&page=${1}`
-        : `&page=${Math.floor(Math.random() * _.pages + 1)}`
+    const nextPage = `&page=${_.page}`
     try {
       const response = await axios.get(
-        `https://api.kinopoisk.dev/movie?token=<Enter YOUR TOKEN THERE>&limit=1${genre}${country}${popular}${date}${rate}${nextPage}${age}`
+        `https://api.kinopoisk.dev/v1.3/movie?&limit=1${genre}${country}${popular}${date}${rate}${nextPage}${age}`,
+        { headers: { 'X-API-KEY': 'C6AE02R-QQT4Z07-M6YAG1X-HD4BSC0' } }
       )
       return response.data
     } catch (e: any) {

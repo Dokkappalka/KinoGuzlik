@@ -117,24 +117,9 @@ const MainScreen = ({ navigation }: any) => {
               rate: `${lowRate}-${hightRate}`,
               date: `${lowDate}-${hightDate}`,
               pages: film.pages,
+              page: 1,
             })
-          )
-            // .then((res) => {
-            //   if (!res.payload.docs.length) {
-            //     dispatch(
-            //       fetchFilms({
-            //         genre: currentGenre,
-            //         country: currentCountry,
-            //         popular: chosenPopular,
-            //         age: chosenAges,
-            //         rate: `${lowRate}-${hightRate}`,
-            //         date: `${lowDate}-${hightDate}`,
-            //         pages: res.payload.pages,
-            //       })
-            //     )
-            //   }
-            // })
-            .finally(() => navigation.navigate('Film')) //Можно было бы передавать сразу всю требуемую информацию, но я не до конца понимаю, что из этого тратит меьнше русурсов и как правильнее. Возможно, я ошибся...
+          ).finally(() => navigation.navigate('Film')) //Можно было бы передавать сразу всю требуемую информацию, но я не до конца понимаю, что из этого тратит меьнше русурсов и как правильнее. Возможно, я ошибся...
         }}
       >
         <SearchButtonText>Найди мне фильм!</SearchButtonText>
